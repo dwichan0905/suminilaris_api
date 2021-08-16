@@ -34,8 +34,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('credential', 'Home::index');
+
+// credential
 $routes->post('credential/login','Credential::login');
-$routes->post('credential/register','Credential::create');
+$routes->post('credential/register','Credential::register');
+$routes->put('credential/password/modify', 'Credential::modifyPassword');
+$routes->put('admin/identity/modify','Credential::identityModify');
+$routes->delete('admin/(:any)/delete', 'Credential::deleteAccount/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
